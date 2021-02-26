@@ -1,1 +1,36 @@
-<p>show-hotels works!</p>
+<br> <br>
+<div class="container">
+
+  <div class="alert alert-success" *ngIf="deleted">
+    The hotel has been deleted successfuly
+  </div>
+  <table id="data" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Hotel ID</th>
+        <th scope="col">Hotel name</th>
+        <th scope="col">City</th>
+        <th scope="col">adress</th>
+        <th scope="col">Room price</th>
+        <th scope="col">Contact info</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of HotelList; let SN=index">
+        <!-- <tr> -->
+        <td>{{hotel?.id}}</td>
+        <td>{{hotel?.hotelName}}</td>
+        <td>{{hotel?.city}}</td>
+        <td>{{hotel?.hotelName}}</td>
+        <td>{{hotel?.roomPrice}}</td>
+        <td>{{hotel?.contactInfo}}</td>
+        <td><button type="submit" class="btn btn-primary " routerLink="/hotels/add/{{hotel?.id}}">Update</button></td>
+        <td><button type="submit" class="btn btn-danger " (click)="deletehotel(hotel?.id)">Delete</button></td>
+
+        
+      </tr>
+
+    </tbody>
+  </table>
+</div>
