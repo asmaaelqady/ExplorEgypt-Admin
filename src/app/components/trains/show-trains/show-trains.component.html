@@ -29,7 +29,7 @@
         <td>{{train.arrivalTime}}</td>
         <td>{{train.departureTime}}</td>
         <td>{{train.ticketPrice}}</td>
-        <td><button type="submit" class="btn btn-primary " routerLink="/trains/add/{{train?.id}}">Update</button></td>
+        <td><button type="submit" class="btn btn-primary " routerLink="/trains/edit/{{train?.id}}">Update</button></td>
         <td><button type="submit" class="btn btn-danger " (click)="deletetrain(train?.id)">Delete</button></td>
 
       </tr>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TrainService } from '../../Services/train.service';
 import { Itrain } from '../../viewmodels/itrain';
 
@@ -11,11 +12,11 @@ export class ShowTrainsComponent implements OnInit {
 
   TrainList: Itrain[]=[];
   deleted:boolean=false
-  constructor(private trainSer: TrainService, ) { }
+  constructor(private trainSer: TrainService,private router: Router ) { }
 
   ngOnInit(): void {
     console.log('train')
-    this.trainSer.geHotels().subscribe(
+    this.trainSer.getTrains().subscribe(
        (response) => { 
          console.log(response)
          this.TrainList = response;
@@ -30,7 +31,7 @@ export class ShowTrainsComponent implements OnInit {
       this.trainSer.deleteTrain(id).subscribe(
         (res) => {
               console.log(res);
-              // this.route.navigate(['/hotels/all']);
+               this.router.navigate(['/trains/all']);
               this.deleted= true
               
             },

@@ -14,6 +14,7 @@ export class AddHotelsComponent implements OnInit {
   AddHotelForm: FormGroup;
    hotel: IHotel;
   CityList: ICity[]=[];
+  CityID: ICity[] = [];
   added:boolean=false
   constructor( private fb: FormBuilder, private hotelSer: HotelService) {
     this.AddHotelForm = this.fb.group({
@@ -22,6 +23,7 @@ export class AddHotelsComponent implements OnInit {
     roomPrice:[''],
     contactInfo: [''],
     adress:[''],
+    cityID:[''],
     })
     this.hotel={
     hotelName: '',
@@ -29,6 +31,7 @@ export class AddHotelsComponent implements OnInit {
     roomPrice:'',
     contactInfo: '',
     adress:'',
+    
     }
 
    }
@@ -43,6 +46,21 @@ export class AddHotelsComponent implements OnInit {
       (err) =>{console.log(err)} 
     
     )
+  }
+
+  chooseCity(a: any) {
+    // console.log(a.target.value);
+    // console.log('hotel')
+    this.hotelSer.getCityID(a.target.value).subscribe(
+      (response) => {
+        // console.log('hotel')
+        // console.log(this.selectedCity)
+        console.log(this.CityID)
+        this.CityID = response;
+      },
+      (err) => { console.log(err) }
+    )
+
   }
 
   AddHotel(){

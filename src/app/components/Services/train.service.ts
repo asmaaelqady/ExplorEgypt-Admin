@@ -15,7 +15,7 @@ export class TrainService {
   getCity(): Observable<ICity[]> {
     return this.httpclient.get<ICity[]>(`${environment.API_URL}/city`);
   }
-  addHotel(train: Itrain): Observable<any[]> {
+  addtrain(train: Itrain): Observable<any[]> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -26,9 +26,16 @@ export class TrainService {
 
     return this.httpclient.post<any>(`${environment.API_URL}/trains`, train, httpOptions);
   }
-  geHotels(): Observable<Itrain[]> {
-    // console.log(pID)
+  getTrains(): Observable<Itrain[]> {
     return this.httpclient.get<Itrain[]>(`${environment.API_URL}/trains`);
+  }
+  getTrainsByID(id:number): Observable<Itrain[]> {
+ 
+    return this.httpclient.get<Itrain[]>(`${environment.API_URL}/trains/${id}`);
+  }
+
+  update(id:number, train:Itrain) {
+    return this.httpclient.put(`${environment.API_URL}/hotels/${id}`, train);
   }
 
 

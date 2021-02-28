@@ -22,10 +22,10 @@
         <td>{{hotel?.id}}</td>
         <td>{{hotel?.hotelName}}</td>
         <td>{{hotel?.city}}</td>
-        <td>{{hotel?.hotelName}}</td>
+        <td>{{hotel?.adress}}</td>
         <td>{{hotel?.roomPrice}}</td>
         <td>{{hotel?.contactInfo}}</td>
-        <td><button type="submit" class="btn btn-primary " routerLink="/hotels/add/{{hotel?.id}}">Update</button></td>
+        <td><button type="submit" class="btn btn-primary " routerLink="/hotels/edit/{{hotel?.id}}">Update</button></td>
         <td><button type="submit" class="btn btn-danger " (click)="deletehotel(hotel?.id)">Delete</button></td>
 
         
