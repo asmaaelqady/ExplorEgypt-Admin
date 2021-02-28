@@ -11,6 +11,12 @@ import { AddHotelComponent } from './components/hotels/add-hotel/add-hotel.compo
 import { ShowHotelsComponent } from './components/hotels/show-hotels/show-hotels.component';
 import { ShowUsersComponent } from './components/show-users/show-users.component';
 import { LoginComponent } from './components/login/login.component';
+import { ViewExploreArticlesComponent } from './components/view-explore-articles/view-explore-articles.component';
+import { AddExploreArticlesComponent } from './components/add-explore-articles/add-explore-articles.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,11 +28,26 @@ import { LoginComponent } from './components/login/login.component';
     AddHotelComponent,
     ShowHotelsComponent,
     ShowUsersComponent,
-    LoginComponent
+    LoginComponent,
+    ViewExploreArticlesComponent,
+    AddExploreArticlesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      iconClasses: {
+        error: 'toast-error',
+        info: 'toast-info',
+        success: 'toast-success',
+        warning: 'toast-warning',
+      }
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
