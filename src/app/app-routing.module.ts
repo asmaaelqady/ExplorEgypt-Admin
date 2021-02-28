@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ActivitiesArticlesComponent } from './components/activities-articles/activities-articles.component';
+import { AddArticleComponent } from './components/add-article/add-article.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddHotelsComponent } from './components/hotels/add-hotels/add-hotels.component';
 import { ShowHotelsComponent } from './components/hotels/show-hotels/show-hotels.component';
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: 'trains/all', component: ShowTrainsComponent},
   {path: 'trains/add', component: AddTrainsComponent},
   {path: 'users/all', component: ShowUsersComponent},
+  {path: 'activitiesArticles', component: ActivitiesArticlesComponent},
+  {path: 'addActivitiesArticle', component: AddArticleComponent},
   {path: '', redirectTo:'dashboard', pathMatch:'full'},
   {path: '**', component: NotFoundComponent}
 ];

@@ -16,6 +16,8 @@ import { AddHotelsComponent } from './components/hotels/add-hotels/add-hotels.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddTrainsComponent } from './components/trains/add-trains/add-trains.component';
 import { ShowTrainsComponent } from './components/trains/show-trains/show-trains.component';
+import { ActivitiesArticlesComponent } from './components/activities-articles/activities-articles.component';
+import { AddArticleComponent } from './components/add-article/add-article.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { ShowTrainsComponent } from './components/trains/show-trains/show-trains
     ShowHotelsComponent,
     AddHotelsComponent,
     AddTrainsComponent,
-    ShowTrainsComponent
+    ShowTrainsComponent,
+    ActivitiesArticlesComponent,
+    AddArticleComponent
   ],
   imports: [
     BrowserModule,
