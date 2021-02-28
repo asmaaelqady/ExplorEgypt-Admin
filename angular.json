@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "Explore-Egypt-Admin"
+  "defaultProject": "Explore-Egypt-Admin",
+  "cli": {
+    "analytics": "3928542c-5b43-496b-ad92-a2fe86008ebf"
+  }
 }

@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RightSideBarComponent } from './components/right-side-bar/right-side-bar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { AddHotelComponent } from './components/hotels/add-hotel/add-hotel.component';
-import { ShowHotelsComponent } from './components/hotels/show-hotels/show-hotels.component';
+
 import { ShowUsersComponent } from './components/show-users/show-users.component';
 import { LoginComponent } from './components/login/login.component';
 import { ViewExploreArticlesComponent } from './components/view-explore-articles/view-explore-articles.component';
@@ -16,7 +15,14 @@ import { AddExploreArticlesComponent } from './components/add-explore-articles/a
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+
+import { AddHotelsComponent } from './components/hotels/add-hotels/add-hotels.component';
+import { AddTrainsComponent } from './components/trains/add-trains/add-trains.component';
+import { ShowTrainsComponent } from './components/trains/show-trains/show-trains.component';
+import { EditTrainsComponent } from './components/trains/edit-trains/edit-trains.component';
+import { EditHotelsComponent } from './components/hotels/edit-hotels/edit-hotels.component';
+import { ShowHotelsComponent } from './components/hotels/show-hotels/show-hotels.component';
+
 
 @NgModule({
   declarations: [
@@ -25,12 +31,16 @@ import { HttpClientModule } from '@angular/common/http';
     RightSideBarComponent,
     DashboardComponent,
     NotFoundComponent,
-    AddHotelComponent,
-    ShowHotelsComponent,
     ShowUsersComponent,
     LoginComponent,
     ViewExploreArticlesComponent,
-    AddExploreArticlesComponent
+    AddExploreArticlesComponent,
+    ShowHotelsComponent,
+    AddHotelsComponent,
+    AddTrainsComponent,
+    ShowTrainsComponent,
+    EditTrainsComponent,
+    EditHotelsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
         warning: 'toast-warning',
       }
     }),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
