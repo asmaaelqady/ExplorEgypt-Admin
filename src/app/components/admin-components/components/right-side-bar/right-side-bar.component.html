@@ -3,7 +3,7 @@
     <ul class="list-unstyled components">
       <p> Main Menu</p>
       <li>
-        <a href="index.html"> Dashboard</a>
+        <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" > Dashboard</a>
       </li>
       <li>
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle active">
@@ -27,12 +27,8 @@
           User</a>
         <ul class="collapse list-unstyled" id="userSubmenu">
           <li>
-            <a href="#">All User</a>
+            <a [routerLink]="['/allusers']" routerLinkActive="router-link-active" >All User</a>
           </li>
-          <li>
-            <a href="#">Add new User</a>
-          </li>
-         
         </ul>
       </li>
       <li>

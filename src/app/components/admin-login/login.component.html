@@ -1,0 +1,40 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form [formGroup]="LoginForm" (ngSubmit)="login()" class="login100-form">
+                <!-- <span class="login100-form-logo">
+                    <i class="zmdi zmdi-landscape"></i>
+                </span> -->
+                <span class="alert alert-danger" *ngIf="islogged">
+                    Your password is incorrect. Please try again.
+                </span>
+                <span class="login100-form-title p-b-34 p-t-27" style="margin-top: 90px;">
+                    Log in
+                </span>
+                <div class="wrap-input100 " data-validate = "Enter username">
+                    <input class="input100" type="email" name="username" placeholder="Username" formControlName="email"
+                     required>
+                </div>
+                
+
+                <div class="wrap-input100 " data-validate="Enter password">
+                    <input formControlName="password" class="input100" type="password" name="pass" placeholder="Password" required minlength="6" >
+                </div>
+
+                <!-- <div class="contact100-form-checkbox">
+                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                    <label class="label-checkbox100" for="ckb1">
+                        Remember me
+                    </label>
+                </div> -->
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
