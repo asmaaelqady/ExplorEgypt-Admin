@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { Subscription } from 'rxjs';
 import { UsersService } from 'src/app/service/users.service';
 import { IUser } from 'src/app/viewmodels/iuser';
@@ -12,7 +12,6 @@ import { IUser } from 'src/app/viewmodels/iuser';
 export class ShowUsersComponent implements OnInit {
   subscribtion: Subscription|null=null;
   UserList:IUser[]=[];
-  faTrashAlt = faTrashAlt;
   constructor(private userservice :UsersService) {
     console.log("on constractor");
    this.getAllUsers();

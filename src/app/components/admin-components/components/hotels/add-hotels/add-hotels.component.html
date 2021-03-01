@@ -1,0 +1,75 @@
+<br> <br>
+<div class="container">
+
+  <div class="alert alert-success" *ngIf="added">
+    The hotel has been added successfuly
+  </div>
+
+  <form [formGroup]="AddHotelForm" (ngSubmit)="AddHotel()">
+    <div class="form-group row">
+      <label for="ID" class="col-sm-2 ">Hotel ID</label>
+      <div class="col-sm-10">
+        <input readonly type="text" class="form-control" id="ID" placeholder="Hotel ID">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="hotelName" class="col-sm-2">Hotel name</label>
+      <div class="col-sm-10">
+        <input type="text " class="form-control" formControlName="hotelName" placeholder="Hotel Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="city" class="col-sm-2">city</label>
+      <div class="col-sm-10">
+        <select class="form-control" formControlName="city">
+          <option>Choose City</option>
+          <option *ngFor="let city of CityList" [value]='city.name'>{{city.name}}</option>
+        </select>
+      </div>
+      <!-- <input class="form-control" formControlName="cityID" [value]='city.id'/> -->
+    </div>
+
+
+    <div class="form-group row">
+      <label for="city" class="col-sm-2">cityID</label>
+      <div class="col-sm-10">
+        <select class="form-control" formControlName="cityID">
+          <option>Choose City</option>
+          <option *ngFor="let city of CityList" [value]='city.id'>{{city.name}} : {{city.id}}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- <div class="form-group row">
+      <label for="city" class="col-sm-2">city ID</label>
+      <div class="col-sm-10">
+        <input readonly type="text" class="form-control" formControlName="cityID" placeholder="cityID"
+          [value]='ciity.id' (change)="selectCity($event)" />
+      </div>
+    </div> -->
+
+    <div class="form-group row">
+      <label for="adress" class="col-sm-2 ">adress</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="adress" placeholder="adress">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="contactInfo" class="col-sm-2 ">Contact info</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="contactInfo" placeholder="Contact info">
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="roomPrice" class="col-sm-2 ">Room price</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="roomPrice" placeholder="Room price">
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="AddHotelForm.invalid" class="btn btn-block btn-primary ">Add</button>
+  </form>
+</div>

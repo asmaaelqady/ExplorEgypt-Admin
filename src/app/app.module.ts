@@ -4,20 +4,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AdminLoginRoutingModule} from './components/admin-login/login.routing.component'
 import { AdminRoutingModule } from './components/admin-components/admin.routing.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ShowUsersComponent } from './components/admin-components/components/show-users/show-users.component';
+import { ShowHotelsComponent } from './components/admin-components/components/hotels/show-hotels/show-hotels.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShowUsersComponent  
+    ShowHotelsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminLoginRoutingModule,
     AdminRoutingModule,
-    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

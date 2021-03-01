@@ -5,12 +5,21 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppAdminComponent } from './app-admin.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RightSideBarComponent } from './components/right-side-bar/right-side-bar.component';
-import { AddHotelComponent } from './components/hotels/add-hotel/add-hotel.component';
-import { ShowHotelsComponent } from './components/hotels/show-hotels/show-hotels.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShowUsersComponent } from './components/show-users/show-users.component';
 import { AuthGuard } from 'src/app/guard/auth.guard';
-
+import { AddHotelsComponent } from './components/hotels/add-hotels/add-hotels.component';
+import { EditHotelsComponent } from './components/hotels/edit-hotels/edit-hotels.component';
+import { ViewExploreArticlesComponent } from './components/view-explore-articles/view-explore-articles.component';
+import { AddTrainsComponent } from './components/trains/add-trains/add-trains.component';
+import { EditTrainsComponent } from './components/trains/edit-trains/edit-trains.component';
+import { ShowTrainsComponent } from './components/trains/show-trains/show-trains.component';
+import { AddExploreArticlesComponent } from './components/add-explore-articles/add-explore-articles.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ShowHotelsComponent } from './components/hotels/show-hotels/show-hotels.component';
 const routes: Routes = [
 
     {
@@ -20,21 +29,48 @@ const routes: Routes = [
             {
                 path: 'dashboard', component:DashboardComponent,canActivate:[AuthGuard]
             },
-           {
-               path: '', redirectTo:'dashboard', pathMatch:'full'
-           },
+           
            {
             path: 'allusers', component:ShowUsersComponent,canActivate:[AuthGuard]
         },
+           
+           {path: 'hotels/add', component: AddHotelsComponent},
+           {path: 'hotels/all', component: ShowHotelsComponent},
+           {path: 'hotels/edit/:id', component: EditHotelsComponent},
+           {path: 'trains/all', component: ShowTrainsComponent},
+           {path: 'trains/add', component: AddTrainsComponent},
+           {path: 'trains/edit/:id', component: EditTrainsComponent},
+           {path: 'addExploreArticle', component:AddExploreArticlesComponent},
+           {path: 'viewExploreArticles', component: ViewExploreArticlesComponent},
            {
-               path: '**', component: NotFoundComponent
-           },
+            path: '', redirectTo:'dashboard', pathMatch:'full'
+        },
+        {
+            path: '**', component: NotFoundComponent
+        }
+         
 
         ]
     }
 ];
 @NgModule({
-    imports: [RouterModule.forRoot(routes),FontAwesomeModule],
+    imports: [
+        RouterModule.forRoot(routes),
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+          positionClass: 'toast-bottom-right',
+          iconClasses: {
+            error: 'toast-error',
+            info: 'toast-info',
+            success: 'toast-success',
+            warning: 'toast-warning',
+          }
+        }),
+        HttpClientModule,
+        FontAwesomeModule
+    ],
     exports: [RouterModule],
     declarations:[
         AppAdminComponent,
@@ -42,8 +78,13 @@ const routes: Routes = [
         RightSideBarComponent,
         DashboardComponent,
         NotFoundComponent,
-        AddHotelComponent,
-        ShowHotelsComponent
+        AddHotelsComponent,
+        EditHotelsComponent,
+        ViewExploreArticlesComponent,
+        AddTrainsComponent,
+        EditTrainsComponent,
+        ShowTrainsComponent,
+        AddExploreArticlesComponent
     ]
   })
 export class AdminRoutingModule { }

@@ -37,10 +37,23 @@
           Hotels</a>
         <ul class="collapse list-unstyled" id="hotelSubmenu">
           <li>
-            <a href="#">All Hotels</a>
+            <a routerLink="/hotels/all">All Hotels</a>
           </li>
           <li>
-            <a href="#">Add new Hotel</a>
+            <a routerLink="/hotels/add">Add new Hotel</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#trainsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <i class="fas fa-h-square"></i>
+            Trains</a>
+        <ul class="collapse list-unstyled" id="trainsSubmenu">
+          <li>
+            <a routerLink="/trains/all">All Trains</a>
+          </li>
+          <li>
+            <a routerLink="/trains/add">Add new Trains</a>
           </li>
         </ul>
       </li>
@@ -54,6 +67,20 @@
           </li>
           <li>
             <a href="#">Add new Report</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#articlesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fas fa-chart-bar"></i>
+          Articles</a>
+        <ul class="collapse list-unstyled" id="articlesSubmenu">
+          <li>
+            <a [routerLink]="['/viewExploreArticles']">Explore Articles</a>
+          </li>
+          <li>
+            <a [routerLink]="['/addExploreArticle']">Add Explore Article</a>
+            <!-- <a [routerLink]="[ '/path', routeParam ]">name</a> -->
           </li>
         </ul>
       </li>
