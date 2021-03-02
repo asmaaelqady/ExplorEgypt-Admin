@@ -14,6 +14,10 @@ export class HotelService {
   getCity(): Observable<ICity[]> {
     return this.httpclient.get<ICity[]>(`${environment.API_URL}/city`);
   }
+
+  getCityID(id: number): Observable<ICity[]> {
+    return this.httpclient.get<ICity[]>(`${environment.API_URL}/city?id=${id}`);
+  }
   addHotel(hotel: IHotel): Observable<any[]> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -25,17 +29,18 @@ export class HotelService {
 
     return this.httpclient.post<any>(`${environment.API_URL}/hotels`, hotel, httpOptions);
   }
-  geHotels(): Observable<IHotel[]> {
+  getHotels(): Observable<IHotel[]> {
     return this.httpclient.get<IHotel[]>(`${environment.API_URL}/hotels`);
   }
-  // update(id:number, hotel:IHotel) {
-  //   const updated = {hotelName:hotel.hotelName,
-  //   city: hotel.city,
-  //   roomPrice:hotel.roomPrice,
-  //   contactInfo: hotel.contactInfo,
-  //   adress:hotel.adress}
-  //   return this.httpclient.put(`${environment.API_URL}/hotels/${id}`, updated);
-  // }
+
+  getHotelByID(id:number): Observable<IHotel[]> {
+    return this.httpclient.get<IHotel[]>(`${environment.API_URL}/hotels/${id}`);
+  }
+  update(id:number, hotel:IHotel) {
+    return this.httpclient.put(`${environment.API_URL}/hotels/${id}`, hotel);
+  }
+
+
 
   deletehotel(id:any) : Observable<any[]> {
     const httpOptions = {headers: new HttpHeaders({

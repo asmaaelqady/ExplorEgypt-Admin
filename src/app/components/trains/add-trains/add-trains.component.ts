@@ -19,8 +19,10 @@ export class AddTrainsComponent implements OnInit {
     this.AddTrainForm = this.fb.group({
       trainNumber: [''],
       city:[''],
+      cityID:[''],
       ticketPrice:[''],
       destination: [''],
+      destinationId: [''],
       departureTime:[''],
       arrivalTime:[''],
       details:[''],
@@ -48,7 +50,7 @@ export class AddTrainsComponent implements OnInit {
   }
   AddTrain(){
     console.log(this.AddTrainForm.value)
-    this.trainSer.addHotel(this.AddTrainForm.value).subscribe(
+    this.trainSer.addtrain(this.AddTrainForm.value).subscribe(
       (res) => {
         console.log(res);
         this.AddTrainForm.reset();

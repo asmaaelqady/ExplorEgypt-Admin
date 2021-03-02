@@ -87,6 +87,20 @@
           </li>
         </ul>
       </li>
+      <li>
+        <a href="#articlesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+          <i class="fas fa-chart-bar"></i>
+          Articles</a>
+        <ul class="collapse list-unstyled" id="articlesSubmenu">
+          <li>
+            <a [routerLink]="['/viewExploreArticles']">Explore Articles</a>
+          </li>
+          <li>
+            <a [routerLink]="['/addExploreArticle']">Add Explore Article</a>
+            <!-- <a [routerLink]="[ '/path', routeParam ]">name</a> -->
+          </li>
+        </ul>
+      </li>
     </ul>
   </nav>
 

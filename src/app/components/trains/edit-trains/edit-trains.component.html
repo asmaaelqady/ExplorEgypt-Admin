@@ -1,14 +1,14 @@
 <br> <br>
 <div class="container">
-  <div class="alert alert-success" *ngIf="added">
+  <div class="alert alert-success" >
     The train has been added successfuly
   </div>
 
-  <form [formGroup]="AddTrainForm" (ngSubmit)="AddTrain()">
+  <form [formGroup]="AddTrainForm" (ngSubmit)="editTrain()" >
     <div class="form-group row">
       <label for="ID" class="col-sm-2 ">Train ID</label>
       <div class="col-sm-10">
-        <input readonly type="text " class="form-control" id="ID" placeholder="Train ID">
+        <input readonly type="text " class="form-control" formControlName="id" placeholder="Train ID">
       </div>
     </div>
 
@@ -81,6 +81,6 @@
       </div>
     </div>
 
-    <button type="submit" [disabled]="AddTrainForm.invalid" class="btn btn-block btn-primary ">Add</button>
+    <button type="submit" [disabled]="" class="btn btn-block btn-primary ">Edit</button>
   </form>
 </div>

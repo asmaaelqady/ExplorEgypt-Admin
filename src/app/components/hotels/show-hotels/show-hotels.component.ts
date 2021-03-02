@@ -20,7 +20,7 @@ export class ShowHotelsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('hotels')
-   this.hotelSer.geHotels().subscribe(
+   this.hotelSer.getHotels().subscribe(
       (response) => { 
         console.log(response)
         this.HotelList = response;

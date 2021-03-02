@@ -1,14 +1,17 @@
 textarea {
   overflow-y: scroll;
 }
+#head{
+  margin-top: 5vh;
+  margin-left: 3vw;
+  margin-bottom: 5vh;
+  }
 
 form {
-  margin-top: 5vh;
-  display: inline-block;
-  text-align: right;
-  font-size: large;
+  text-align: center;
 }
-
+label{text-align: right;
+font-size: 1.3em;}
 .avatar-edit {
   input {
     display: none;
@@ -27,4 +30,7 @@ height: 40px;
       transition: all .2s ease-in-out;
     }
   }
-
+.form-control.ng-touched.ng-invalid{
+border: darkred  solid;
+border-width: 1px 1px 1px 5px;
+}
