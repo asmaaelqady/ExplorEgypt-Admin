@@ -38,8 +38,8 @@ export class ShowHotelsComponent implements OnInit {
         (res) => {
               console.log(res);
               // this.route.navigate(['/hotels/all']);
-              this.deleted= true
-              
+              // window.location.reload();
+              this.deleted= true 
             },
             (err) => { console.log(err) }
           

@@ -35,7 +35,7 @@ export class TrainService {
   }
 
   update(id:number, train:Itrain) {
-    return this.httpclient.put(`${environment.API_URL}/hotels/${id}`, train);
+    return this.httpclient.put(`${environment.API_URL}/trains/${id}`, train);
   }
 
 

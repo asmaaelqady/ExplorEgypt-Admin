@@ -14,8 +14,8 @@
         <th scope="col">to</th>
         <th scope="col">departure</th>
         <th scope="col">arrival</th>
+        <th scope="col">details</th>
         <th scope="col">price</th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -25,11 +25,13 @@
         <!-- <td></td> -->
         <td>{{train.trainNumber}}</td>
         <td>{{train.city}}</td>
+        
         <td>{{train.destination}}</td>
-        <td>{{train.arrivalTime}}</td>
         <td>{{train.departureTime}}</td>
+        <td>{{train.arrivalTime}}</td>
+        <td>{{train.details}}</td>
         <td>{{train.ticketPrice}}</td>
-        <td><button type="submit" class="btn btn-primary " [routerLink]="['/trains/edit/{{train?.id}}']">Update</button></td>
+        <td><button type="submit" class="btn btn-primary " routerLink="/trains/edit/{{train?.id}}">Update</button></td>
         <td><button type="submit" class="btn btn-danger " (click)="deletetrain(train?.id)">Delete</button></td>
 
       </tr>
