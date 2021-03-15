@@ -1,8 +1,8 @@
   
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HotelService } from 'src/app/components/Services/hotel.service';
-import { IHotel } from 'src/app/components/viewmodels/ihotel';
+import { HotelService } from 'src/app/services/hotel.service';
+import { IHotel } from 'src/app/viewmodels/ihotel';
 
 
 @Component({
@@ -17,13 +17,13 @@ export class ShowHotelsComponent implements OnInit {
     HotelList: IHotel[]=[];
     deleted:boolean=false
   constructor(private activatedRout: ActivatedRoute,private hotelSer: HotelService, private route: Router,) {
-    
+
    }
 
   ngOnInit(): void {
     console.log('hotels')
    this.hotelSer.getHotels().subscribe(
-      (response) => { 
+      (response) => {
         console.log(response)
         this.HotelList = response;
       },
@@ -41,10 +41,10 @@ export class ShowHotelsComponent implements OnInit {
               console.log(res);
               // this.route.navigate(['/hotels/all']);
               this.deleted= true
-              
+
             },
             (err) => { console.log(err) }
-          
+
       )
     }
   }

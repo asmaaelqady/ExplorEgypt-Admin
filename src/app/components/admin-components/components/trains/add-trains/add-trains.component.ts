@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { TrainService } from '../../../../Services/train.service';
-import { ICity } from '../../../../viewmodels/icity';
-import { Itrain } from '../../../../viewmodels/itrain';
+import { TrainService } from 'src/app/services/train.service';
+import { ICity } from '../../../../../viewmodels/icity';
+import { Itrain } from '../../../../../viewmodels/itrain';
 
 @Component({
   selector: 'app-add-trains',
@@ -44,8 +44,8 @@ export class AddTrainsComponent implements OnInit {
       this.CityList= response;
        console.log(this.CityList)
     },
-      (err) =>{console.log(err)} 
-    
+      (err) =>{console.log(err)}
+
     )
   }
   AddTrain(){

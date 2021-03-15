@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TrainService } from '../../../../Services/train.service';
-import { ICity } from '../../../../viewmodels/icity';
-import { Itrain } from '../../../../viewmodels/itrain';
+import { TrainService } from 'src/app/services/train.service';
+import { ICity } from '../../../../../viewmodels/icity';
+import { Itrain } from '../../../../../viewmodels/itrain';
 
 @Component({
   selector: 'app-edit-trains',
@@ -19,7 +19,7 @@ export class EditTrainsComponent implements OnInit {
   CityList: ICity[]=[];
   CityID: ICity[] = [];
   added:boolean=false;
-  constructor(private fb: FormBuilder, private trainSer: TrainService,private router: Router,private route: ActivatedRoute,) { 
+  constructor(private fb: FormBuilder, private trainSer: TrainService,private router: Router,private route: ActivatedRoute,) {
     this.AddTrainForm = this.fb.group({
       trainNumber: [''],
       city:[''],
@@ -49,8 +49,8 @@ export class EditTrainsComponent implements OnInit {
       this.CityList= response;
        console.log(this.CityList)
     },
-      (err) =>{console.log(err)} 
-    
+      (err) =>{console.log(err)}
+
     )
     this.trainSer.getTrainsByID(this.id).subscribe(
       (response)=>{

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {faHeart, faNewspaper, faSuitcaseRolling, faUsers } from '@fortawesome/free-solid-svg-icons';
-import { DashBoardService } from 'src/app/service/dash-board.service';
+import { DashBoardService } from 'src/app/services/dash-board.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

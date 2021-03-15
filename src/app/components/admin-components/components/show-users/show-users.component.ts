@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { UsersService } from 'src/app/service/users.service';
+import { UsersService } from 'src/app/services/users.service';
 import { IUser } from 'src/app/viewmodels/iuser';
 
 @Component({
@@ -17,7 +17,7 @@ export class ShowUsersComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private _document: Document,private userservice :UsersService) {
    this.getAllUsers();
    }
- 
+
 
   ngOnInit(): void {
     console.log("on init");
@@ -29,7 +29,7 @@ export class ShowUsersComponent implements OnInit {
         console.log(this.UserList)
       },
       (err)=>{console.log(err)}
-    ); 
+    );
   }
   deleteUser(id:number){
     console.log(id);
@@ -40,8 +40,8 @@ export class ShowUsersComponent implements OnInit {
       }, (err) => {
         console.log(err);
      });
-     
-      
+
+
    }
-   
+
 }

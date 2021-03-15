@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 // import { OktaAuthService } from '@okta/okta-angular';
-import { AdminLoginService } from 'src/app/service/admin-login.service';
+import { AdminLoginService } from 'src/app/services/admin-login.service';
 
 @Component({
   selector: 'app-login',

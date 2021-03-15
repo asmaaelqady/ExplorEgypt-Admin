@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HotelService } from '../../../../Services/hotel.service';
-import { ICity } from '../../../../viewmodels/icity';
-import { IHotel } from '../../../../viewmodels/ihotel';
+import { HotelService } from 'src/app/services/hotel.service';
+import { ICity } from '../../../../../viewmodels/icity';
+import { IHotel } from '../../../../../viewmodels/ihotel';
 
 @Component({
   selector: 'app-edit-hotels',
@@ -37,20 +37,20 @@ export class EditHotelsComponent implements OnInit {
         roomPrice:this.AddHotelForm.value.roomPrice,
         contactInfo: this.AddHotelForm.value.contactInfo,
         adress:this.AddHotelForm.value.adress,
-        
+
         }
    }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-        
+
     this.hotelSer.getCity().subscribe(
       (response) =>{
       this.CityList= response;
        console.log("cityList",this.CityList)
     },
-      (err) =>{console.log(err)} 
-    
+      (err) =>{console.log(err)}
+
     )
     this.hotelSer.getHotelByID(this.id).subscribe(
       (response)=>{
@@ -58,8 +58,8 @@ export class EditHotelsComponent implements OnInit {
         // console.log(response)
       }
     )
-    
-     
+
+
   }
   chooseCity(a: any) {
     // console.log(a.target.value);

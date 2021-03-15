@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HotelService } from '../../../../Services/hotel.service';
-import { ICity } from '../../../../viewmodels/icity';
-import { IHotel } from '../../../../viewmodels/ihotel';
+import { HotelService } from '../../../../../services/hotel.service';
+import { ICity } from '../../../../../viewmodels/icity';
+import { IHotel } from '../../../../../viewmodels/ihotel';
 
 @Component({
   selector: 'app-add-hotels',
@@ -31,7 +31,7 @@ export class AddHotelsComponent implements OnInit {
     roomPrice:'',
     contactInfo: '',
     adress:'',
-    
+
     }
 
    }
@@ -43,8 +43,8 @@ export class AddHotelsComponent implements OnInit {
       this.CityList= response;
        console.log(this.CityList)
     },
-      (err) =>{console.log(err)} 
-    
+      (err) =>{console.log(err)}
+
     )
   }
 

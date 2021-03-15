@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TrainService } from '../../../../Services/train.service';
-import { Itrain } from '../../../../viewmodels/itrain';
+import { TrainService } from 'src/app/services/train.service';
+import { Itrain } from '../../../../../viewmodels/itrain';
 
 @Component({
   selector: 'app-show-trains',
@@ -17,7 +17,7 @@ export class ShowTrainsComponent implements OnInit {
   ngOnInit(): void {
     console.log('train')
     this.trainSer.getTrains().subscribe(
-       (response) => { 
+       (response) => {
          console.log(response)
          this.TrainList = response;
        },
@@ -33,10 +33,10 @@ export class ShowTrainsComponent implements OnInit {
               console.log(res);
                this.router.navigate(['/trains/all']);
               this.deleted= true
-              
+
             },
             (err) => { console.log(err) }
-          
+
       )
     }
   }

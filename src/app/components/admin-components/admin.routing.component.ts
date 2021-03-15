@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppAdminComponent } from './app-admin.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,38 +19,48 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShowHotelsComponent } from './components/hotels/show-hotels/show-hotels.component';
+import { AddEventsComponent } from './components/Events/add-events/add-events.component';
+import { AllEventsComponent } from './components/Events/all-events/all-events.component';
+import { AddArticleComponent } from './components/add-article/add-article.component';
+import { ActivitiesArticlesComponent } from './components/activities-articles/activities-articles.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 const routes: Routes = [
 
-    {
-        path: '',
-        component: AppAdminComponent,
-        children:[
-            {
-                path: 'dashboard', component:DashboardComponent,canActivate:[AuthGuard]
-            },
-           
-           {
-            path: 'allusers', component:ShowUsersComponent,canActivate:[AuthGuard]
-        },
-           
-           {path: 'hotels/add', component: AddHotelsComponent},
-           {path: 'hotels/all', component: ShowHotelsComponent},
-           {path: 'hotels/edit/:id', component: EditHotelsComponent},
-           {path: 'trains/all', component: ShowTrainsComponent},
-           {path: 'trains/add', component: AddTrainsComponent},
-           {path: 'trains/edit/:id', component: EditTrainsComponent},
-           {path: 'addExploreArticle', component:AddExploreArticlesComponent},
-           {path: 'viewExploreArticles', component: ViewExploreArticlesComponent},
-           {
-            path: '', redirectTo:'dashboard', pathMatch:'full'
-        },
-        {
-            path: '**', component: NotFoundComponent
-        }
-         
+  {
+    path: '',
+    component: AppAdminComponent,
+    children: [
+      {
+        path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]
+      },
 
-        ]
-    }
+      {
+        path: 'allusers', component: ShowUsersComponent, canActivate: [AuthGuard]
+      },
+
+      { path: 'hotels/add', component: AddHotelsComponent },
+      { path: 'hotels/all', component: ShowHotelsComponent },
+      { path: 'hotels/edit/:id', component: EditHotelsComponent },
+      { path: 'trains/all', component: ShowTrainsComponent },
+      { path: 'trains/add', component: AddTrainsComponent },
+      { path: 'trains/edit/:id', component: EditTrainsComponent },
+      { path: 'addExploreArticle', component: AddExploreArticlesComponent },
+      { path: 'viewExploreArticles', component: ViewExploreArticlesComponent },
+      { path: 'addActivitiesArticle', component: AddArticleComponent },
+      { path: 'addActivitiesArticle/:id', component: AddArticleComponent },
+      { path: 'activitiesArticles', component: ActivitiesArticlesComponent },
+      { path: 'allevents', component: AllEventsComponent },
+      { path: 'addevent', component: AddEventsComponent },
+      {
+        path: '', redirectTo: 'dashboard', pathMatch: 'full'
+      },
+      {
+        path: '**', component: NotFoundComponent
+      }
+
+
+    ]
+  }
 ];
 @NgModule({
     imports: [
@@ -86,7 +95,10 @@ const routes: Routes = [
         ShowTrainsComponent,
         AddExploreArticlesComponent,
         ShowUsersComponent,
-      
+        AddEventsComponent,
+        AllEventsComponent,
+        ActivitiesArticlesComponent,
+        AddArticleComponent
       
     ]
   })

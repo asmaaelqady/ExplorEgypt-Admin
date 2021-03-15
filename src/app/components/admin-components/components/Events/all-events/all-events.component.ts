@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EventsService } from 'src/app/service/events.service';
+import { EventsService } from 'src/app/services/events.service';
 import { IEvents } from 'src/app/viewmodels/ievents';
 
 
