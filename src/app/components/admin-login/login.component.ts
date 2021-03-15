@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+// import { OktaAuthService } from '@okta/okta-angular';
 import { AdminLoginService } from 'src/app/service/admin-login.service';
 
 @Component({
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     })
   }
   login() {
+    // const accessToken = this.oktaAuth.getAccessToken();
     console.log("log in")
     this.currentUserSubscription = this.adminService.login(this.LoginForm.value.email, this.LoginForm.value.password)
       .subscribe((user) => {

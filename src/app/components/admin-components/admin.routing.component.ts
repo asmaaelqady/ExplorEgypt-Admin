@@ -84,7 +84,10 @@ const routes: Routes = [
         AddTrainsComponent,
         EditTrainsComponent,
         ShowTrainsComponent,
-        AddExploreArticlesComponent
+        AddExploreArticlesComponent,
+        ShowUsersComponent,
+      
+      
     ]
   })
 export class AdminRoutingModule { }
