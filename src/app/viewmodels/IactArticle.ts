@@ -6,7 +6,7 @@ export interface Article {
   section: string;
   content?: string[];
   Images?: string[];
-dep?:number[];
+dep?:number;
 city?:string;
 
 }

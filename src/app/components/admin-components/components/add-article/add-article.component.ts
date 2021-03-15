@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IDepartment } from '../../../../viewmodels/IDepartment';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Article } from '../../../../viewmodels/IactArticle';
@@ -21,6 +21,7 @@ export class AddArticleComponent implements OnInit {
   imgs: string[] = [];
   articleId: string | null = '';
   i: number = 1;
+  contentt: string[] = [];
   constructor(public depService: department, public fb: FormBuilder, private artService: ActArticlesService, private toastr: ToastrService, public router: ActivatedRoute, private route: Router) {
 
     this.activitiesArticles = this.fb.group({
@@ -28,13 +29,16 @@ export class AddArticleComponent implements OnInit {
       description: new FormControl('', Validators.required),
       img: new FormControl('', Validators.required),
       section: new FormControl('', Validators.required),
-      content: new FormControl('', Validators.required),
+      content: new FormControl([], Validators.required),
       Images: new FormControl([]),
-      dep: new FormControl([], Validators.required),
+      dep: new FormControl(0, Validators.required),
       city: new FormControl('', Validators.required),
+      contentSec: new FormControl(''),
+
     })
   }
   ngOnInit(): void {
+
 
     this.router.paramMap.subscribe(ParamMap => {
       this.articleId = ParamMap.get('id');
@@ -65,6 +69,21 @@ export class AddArticleComponent implements OnInit {
       },
       (err) => { console.log(err) }
     );
+  }
+
+  addSec() {
+
+    var textareas = document.getElementsByTagName('textarea');
+    for (let j = 0; j < textareas.length-1; j++) {
+      if (!this.contentt.includes(textareas[j].value)) {
+        this.contentt.push(textareas[j].value)
+      }
+
+    }
+    this.activitiesArticles.patchValue({content: this.contentt })
+console.log( this.activitiesArticles.get('content')?.value)
+    this.contentt=[];
+
   }
   imagesInArray(event: any) {
     let files: FileList = event.target.files;
@@ -110,17 +129,15 @@ export class AddArticleComponent implements OnInit {
   MoreContent() {
     this.i++
     let moreContents = document.createElement('div');
-    let button = document.createElement('button');
-    button.className = 'd-block btn';
-    button.style.margin = '0 auto'
-    button.addEventListener("click", this.MoreContent);
-    button.appendChild(document.createTextNode('Another Section?'));
+    let lable = document.createElement('label');
+    lable.className = 'col-3';
+    lable.htmlFor = 'aContent' + this.i
+    lable.innerText = "content sec:"
     moreContents.innerHTML = `<div class="form-group form-row">
-    <label for="aContent11" class="col-3"> content sec:</label>
-    <textarea id="aContent11" rows="3" style="overflow-y: scroll;" class="form-control col-7 m-1" ></textarea>
+<lable for="aContent${this.i}" class='col-3' style="text-align: right;font-size: 2vw;">content sec:</lable>
+    <textarea id="aContent${this.i}" rows="3" style="overflow-y: scroll;" class="form-control col-7 m-1 sec "formControlName="contentSec${this.i}" ></textarea>
 </div>
     `;
-    moreContents.append(button)
     document.querySelector('.showInputField')?.appendChild(moreContents);
   }
 }
