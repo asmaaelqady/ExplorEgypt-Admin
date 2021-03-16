@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'https://explor-db.herokuapp.com'
+  API_URL: 'https://explore-egypt-db.herokuapp.com'
 };
 
 /*
