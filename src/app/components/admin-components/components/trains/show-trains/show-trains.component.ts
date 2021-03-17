@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TrainService } from 'src/app/services/train.service';
 import { Itrain } from '../../../../../viewmodels/itrain';
 
@@ -12,7 +13,7 @@ export class ShowTrainsComponent implements OnInit {
 
   TrainList: Itrain[]=[];
   deleted:boolean=false
-  constructor(private trainSer: TrainService,private router: Router ) { }
+  constructor(private trainSer: TrainService,private router: Router,private toastr: ToastrService ) { }
 
   ngOnInit(): void {
     console.log('train')
@@ -27,18 +28,19 @@ export class ShowTrainsComponent implements OnInit {
 
   deletetrain(id:any) {
     console.log("delet")
-    if(confirm("Are you want to delete")){
+    // if(confirm("Are you want to delete")){
       this.trainSer.deleteTrain(id).subscribe(
         (res) => {
               console.log(res);
-               this.router.navigate(['/trains/all']);
-              this.deleted= true
+              window.location.reload()
+              this.toastr.success(' The hotels has been deleted successfuly')
 
             },
-            (err) => { console.log(err) }
+            (err) => { console.log(err),
+              this.toastr.error(' There is an error') }
 
       )
-    }
+    // }
   }
 
 }
