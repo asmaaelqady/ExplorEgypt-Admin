@@ -11,10 +11,10 @@
           Events</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
-            <a href="#">All Events</a>
+            <a [routerLink]="['/allevents']" >All Events</a>
           </li>
           <li>
-            <a href="#">Add new Event</a>
+            <a [routerLink]="['/addevent']" >Add new Event</a>
           </li>
 
         </ul>
@@ -71,19 +71,6 @@
           </li>
           <li>
             <a  routerLink="/addActivitiesArticle">Add New Activities Article</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-          <i class="fas fa-chart-bar"></i>
-          Reports</a>
-        <ul class="collapse list-unstyled" id="reportSubmenu">
-          <li>
-            <a href="#">All Reports</a>
-          </li>
-          <li>
-            <a href="#">Add new Report</a>
           </li>
         </ul>
       </li>

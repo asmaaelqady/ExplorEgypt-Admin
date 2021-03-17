@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Article } from '../../../../viewmodels/IactArticle';
 import { DOCUMENT } from '@angular/common';
+import { Article } from 'src/app/viewmodels/IactArticle';
 import { ActArticlesService } from 'src/app/services/act-articles.service';
 
 @Component({

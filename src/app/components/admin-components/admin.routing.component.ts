@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppAdminComponent } from './app-admin.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,8 +19,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShowHotelsComponent } from './components/hotels/show-hotels/show-hotels.component';
+import { AddEventsComponent } from './components/Events/add-events/add-events.component';
+import { AllEventsComponent } from './components/Events/all-events/all-events.component';
 import { AddArticleComponent } from './components/add-article/add-article.component';
 import { ActivitiesArticlesComponent } from './components/activities-articles/activities-articles.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 const routes: Routes = [
 
   {
@@ -47,6 +49,8 @@ const routes: Routes = [
       { path: 'addActivitiesArticle', component: AddArticleComponent },
       { path: 'addActivitiesArticle/:id', component: AddArticleComponent },
       { path: 'activitiesArticles', component: ActivitiesArticlesComponent },
+      { path: 'allevents', component: AllEventsComponent },
+      { path: 'addevent', component: AddEventsComponent },
       {
         path: '', redirectTo: 'dashboard', pathMatch: 'full'
       },
@@ -59,39 +63,43 @@ const routes: Routes = [
   }
 ];
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      positionClass: 'toast-bottom-right',
-      iconClasses: {
-        error: 'toast-error',
-        info: 'toast-info',
-        success: 'toast-success',
-        warning: 'toast-warning',
-      }
-    }),
-    HttpClientModule,
-    FontAwesomeModule
-  ],
-  exports: [RouterModule],
-  declarations: [
-    AppAdminComponent,
-    HeaderComponent,
-    RightSideBarComponent,
-    DashboardComponent,
-    NotFoundComponent,
-    AddHotelsComponent,
-    EditHotelsComponent,
-    ViewExploreArticlesComponent,
-    AddTrainsComponent,
-    EditTrainsComponent,
-    ShowTrainsComponent,
-    AddExploreArticlesComponent,
-    ActivitiesArticlesComponent,
-    AddArticleComponent
-  ]
-})
+    imports: [
+        RouterModule.forRoot(routes),
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+          positionClass: 'toast-bottom-right',
+          iconClasses: {
+            error: 'toast-error',
+            info: 'toast-info',
+            success: 'toast-success',
+            warning: 'toast-warning',
+          }
+        }),
+        HttpClientModule,
+        FontAwesomeModule
+    ],
+    exports: [RouterModule],
+    declarations:[
+        AppAdminComponent,
+        HeaderComponent,
+        RightSideBarComponent,
+        DashboardComponent,
+        NotFoundComponent,
+        AddHotelsComponent,
+        EditHotelsComponent,
+        ViewExploreArticlesComponent,
+        AddTrainsComponent,
+        EditTrainsComponent,
+        ShowTrainsComponent,
+        AddExploreArticlesComponent,
+        ShowUsersComponent,
+        AddEventsComponent,
+        AllEventsComponent,
+        ActivitiesArticlesComponent,
+        AddArticleComponent
+      
+    ]
+  })
 export class AdminRoutingModule { }
