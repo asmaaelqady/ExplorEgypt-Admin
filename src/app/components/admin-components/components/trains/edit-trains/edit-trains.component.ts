@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TrainService } from 'src/app/services/train.service';
 import { ICity } from '../../../../../viewmodels/icity';
 import { Itrain } from '../../../../../viewmodels/itrain';
@@ -19,19 +20,21 @@ export class EditTrainsComponent implements OnInit {
   CityList: ICity[]=[];
   CityID: ICity[] = [];
   added:boolean=false;
-  constructor(private fb: FormBuilder, private trainSer: TrainService,private router: Router,private route: ActivatedRoute,) {
+  constructor(private fb: FormBuilder, private trainSer: TrainService,private router: Router,private route: ActivatedRoute,private toastr: ToastrService) {
     this.AddTrainForm = this.fb.group({
-      trainNumber: [''],
-      city:[''],
-      cityID:[''],
-      ticketPrice:[''],
-      destination: [''],
-      destinationId: [''],
-      departureTime:[''],
-      arrivalTime:[''],
-      details:[''],
+      id:[''],
+      trainNumber: ['',[Validators.required,Validators.pattern(/^[0-9]\d*$/),Validators.minLength(3)]],
+      city:['',[Validators.required]],
+      cityID:['',[Validators.required]],
+      ticketPrice:['',[Validators.required]],
+      destination: ['',[Validators.required]],
+      destinationId: ['',[Validators.required]],
+      departureTime:['',[Validators.required]],
+      arrivalTime:['',[Validators.required]],
+      details:['',[Validators.required]],
       })
       this.train={
+        trainNumber:this.AddTrainForm.value.trainNumber,
         city:this.AddTrainForm.value.city,
         ticketPrice:this.AddTrainForm.value.ticketPrice,
         destination: this.AddTrainForm.value.destination,
@@ -65,9 +68,11 @@ export class EditTrainsComponent implements OnInit {
       (res) => {
         console.log(res);
         this.added= true
-        this.router.navigate(['/trains/all']);
+        this.router.navigate(['/trains/all']).then(()=>{
+          this.toastr.success(' The train has been updated successfuly');});
       },
-      (err) => { console.log(err) }
+      (err) => { console.log(err),
+        this.toastr.error(' There is an error') }
     );
   }
 

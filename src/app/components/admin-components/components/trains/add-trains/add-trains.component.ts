@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TrainService } from 'src/app/services/train.service';
 import { ICity } from '../../../../../viewmodels/icity';
 import { Itrain } from '../../../../../viewmodels/itrain';
@@ -14,20 +16,20 @@ export class AddTrainsComponent implements OnInit {
   AddTrainForm: FormGroup;
    train: Itrain;
   CityList: ICity[]=[];
-  added:boolean=false
-  constructor(private fb: FormBuilder, private trainSer: TrainService) {
+  constructor(private fb: FormBuilder,private router: Router, private trainSer: TrainService,private toastr: ToastrService) {
     this.AddTrainForm = this.fb.group({
-      trainNumber: [''],
-      city:[''],
-      cityID:[''],
-      ticketPrice:[''],
-      destination: [''],
-      destinationId: [''],
-      departureTime:[''],
-      arrivalTime:[''],
-      details:[''],
+      trainNumber: ['',[Validators.required,Validators.pattern(/^[0-9]\d*$/),Validators.minLength(3)]],
+      city:['',[Validators.required]],
+      cityID:['',[Validators.required]],
+      ticketPrice:['',[Validators.required]],
+      destination: ['',[Validators.required]],
+      destinationId: ['',[Validators.required]],
+      departureTime:['',[Validators.required]],
+      arrivalTime:['',[Validators.required]],
+      details:['',[Validators.required]],
       })
       this.train={
+        trainNumber:0,
         city:'',
         ticketPrice:'',
         destination: '',
@@ -54,9 +56,11 @@ export class AddTrainsComponent implements OnInit {
       (res) => {
         console.log(res);
         this.AddTrainForm.reset();
-        this.added= true
+        this.router.navigate(['/trains/all']).then(()=>{
+          this.toastr.success('The train has been added successfuly');});
       },
-      (err) => { console.log(err) }
+      (err) => { console.log(err),
+        this.toastr.error(' There is an error') }
     );
   }
 

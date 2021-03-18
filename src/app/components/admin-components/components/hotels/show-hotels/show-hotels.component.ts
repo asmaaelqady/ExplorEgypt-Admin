@@ -1,6 +1,7 @@
   
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { HotelService } from 'src/app/services/hotel.service';
 import { IHotel } from 'src/app/viewmodels/ihotel';
 
@@ -16,7 +17,7 @@ export class ShowHotelsComponent implements OnInit {
   hotel: IHotel| null = null;
     HotelList: IHotel[]=[];
     deleted:boolean=false
-  constructor(private activatedRout: ActivatedRoute,private hotelSer: HotelService, private route: Router,) {
+  constructor(private activatedRout: ActivatedRoute,private hotelSer: HotelService, private route: Router,private toastr: ToastrService) {
 
    }
 
@@ -35,18 +36,21 @@ export class ShowHotelsComponent implements OnInit {
 
   deletehotel(id:any) {
     console.log("delet")
-    if(confirm("Are you want to delete")){
+    // if(confirm("Are you want to delete")){
       this.hotelSer.deletehotel(id).subscribe(
         (res) => {
               console.log(res);
               // this.route.navigate(['/hotels/all']);
-              this.deleted= true
+              window.location.reload()
+              this.toastr.success(' The hotels has been deleted successfuly')
 
             },
-            (err) => { console.log(err) }
+           
+            (err) => { console.log(err),
+              this.toastr.error(' There is an error') }
 
       )
-    }
+    // }
   }
 
 
