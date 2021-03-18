@@ -1,15 +1,14 @@
-table{
-    font-family:'Calibri';
-    font-size:15px;
-    background-color:#fff;
-    color:#333;
-    width: 100%;
+
+.table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
 }
-thead tr th{
-    font-size: 18px;
-    font-weight: 600;
+
+.list-enq-name {
+    display: block;
+    font-weight: 500;
+    color: #263238;
 }
-.modal-header{
-    background-color:rgb(124, 122, 122);
-    color:#fff;
+.icon{
+    font-size: 11px;
 }

@@ -3,7 +3,7 @@
     <ul class="list-unstyled components">
       <p> Main Menu</p>
       <li>
-        <a routerLink="['/dashboard']" routerLinkActive="router-link-active" > Dashboard</a>
+        <a [routerLink]="['/dashboard']"> Dashboard</a>
       </li>
       <li>
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle active">
@@ -11,10 +11,10 @@
           Events</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
-            <a href="#">All Events</a>
+            <a [routerLink]="['/allevents']" >All Events</a>
           </li>
           <li>
-            <a href="#">Add new Event</a>
+            <a [routerLink]="['/addevent']" >Add new Event</a>
           </li>
 
         </ul>
@@ -27,10 +27,7 @@
           User</a>
         <ul class="collapse list-unstyled" id="userSubmenu">
           <li>
-            <a routerLink="['/allusers']" routerLinkActive="router-link-active" >All User</a>
-          </li>
-          <li>
-            <a href="#">Add new User</a>
+            <a [routerLink]="['/allusers']">All User</a>
           </li>
 
         </ul>
@@ -71,19 +68,6 @@
           </li>
           <li>
             <a  routerLink="/addActivitiesArticle">Add New Activities Article</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-          <i class="fas fa-chart-bar"></i>
-          Reports</a>
-        <ul class="collapse list-unstyled" id="reportSubmenu">
-          <li>
-            <a href="#">All Reports</a>
-          </li>
-          <li>
-            <a href="#">Add new Report</a>
           </li>
         </ul>
       </li>

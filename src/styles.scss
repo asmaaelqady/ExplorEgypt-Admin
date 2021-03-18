@@ -41,9 +41,11 @@
   .wrapper {
     width: 100%;
     align-items: stretch;
+    overflow: hidden;
   }
   .section-2{
     display: flex;
+
       width: 100%;
       align-items: stretch;
       height:100%;
@@ -198,15 +200,14 @@
       }
     }
     .section-1 .icons{
-      width: 30%;
-     
+      margin-right: 95px;
     }
     @media (max-width: 768px) {
       .section-1 .icons{
         padding-top: 10px;
         padding-bottom: 10px;
         
-       
+      
       }
     }
      .section-1 .icons ul{

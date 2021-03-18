@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
 import { IUser } from 'src/app/viewmodels/iuser';
@@ -12,8 +13,8 @@ import { IUser } from 'src/app/viewmodels/iuser';
 export class ShowUsersComponent implements OnInit {
   subscribtion: Subscription|null=null;
   UserList:IUser[]=[];
-  constructor(private userservice :UsersService) {
-    console.log("on constractor");
+  faTrashAlt = faTrashAlt;
+  constructor(@Inject(DOCUMENT) private _document: Document,private userservice :UsersService) {
    this.getAllUsers();
    }
 
@@ -35,7 +36,9 @@ export class ShowUsersComponent implements OnInit {
       this.userservice.deleteUser(id)
       .subscribe(data => {
        console.log(data);
-       this.getAllUsers();
+       this._document.defaultView?.location.reload();
+      }, (err) => {
+        console.log(err);
      });
 
 
